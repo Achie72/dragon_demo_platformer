@@ -24,6 +24,8 @@ Currentyl i'm not concerned about token numbers, in this project i want to focus
 * Return to PICO-8 and press `ctrl+r` to reload.
 * Type `load dragondemo.p8` and `run`.
 
+Alternatively you can try it on [my](https://achie72.github.io/pico8/) github page.
+
 ## Examples i used
 You can find them under `examples/`. Credit to all owners. You can find their name and original cartridge name in the .p8 files. Thanks for them for sharing them.
 
