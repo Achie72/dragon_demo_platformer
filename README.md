@@ -5,7 +5,7 @@ Generally this repository will contain my learning and experiments about the fan
 
 ## Dragondemo.p8
 My first ever project, in which i try to implement a basic platformer, with movements, and collisions as usual. Still under development, and heavily WIP.  
-Currentyl i'm not concerned about token numbers, in this project i want to focus on readability.
+Currently i'm not concerned about token numbers, in this project i want to focus on readability.
 
 ### Current Features
 * Tile based collision check
@@ -14,6 +14,11 @@ Currentyl i'm not concerned about token numbers, in this project i want to focus
 * Fully dynamic UI prints. Just add the element you want to the `ui` collection in `set_ui()` and watch the magic happen.
 * Changeable player skins. Press `x` ingame to change your skin.
 * Pickups in the form of flowers. Also pickup sounds.
+* Proper health system. You start with three, indicated on the GUI, you lose one if you collide with enemies.
+* GUI containing health, and picked up flowers, and missing ones.
+* Two enemy AI. `knight` who just wanders, and turns if he can't go forward, and falls down on ledges. `spearman` who will guard the position, and won't fall of edges.
+* Proper game loop. Now you can lose, and win, and restart the game if one or the other happens.
+
 
 [Animator based on this cartridge](https://www.lexaloffle.com/bbs/?tid=3115 "Simple Animation Function")  
 [Collision based on this article](http://gamedev.docrobs.co.uk/first-steps-in-pico-8-easy-collisions-with-map-tiles "First Steps in PICO-8: Easy Collisions with Map Tiles")
