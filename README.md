@@ -1,7 +1,8 @@
 # pico8
 PICO-8 Fooling and Learning
 
-Generally this repository will contain my learning and experiments about the fantasy console named PICO-8.
+Generally this repository will contain my learning and experiments about the fantasy console named PICO-8.  
+Don't forget to check the people i mentioned in the `Examples and credits` part.
 
 ## Dragondemo.p8
 My first ever project, in which i try to implement a basic platformer, with movements, and collisions as usual. Still under development, and heavily WIP.  
@@ -31,7 +32,7 @@ Currently i'm not concerned about token numbers, in this project i want to focus
 
 Alternatively you can try it on [my](https://achie72.github.io/pico8/) github page.
 
-## Examples i used
+## Examples and credits
 You can find them under `examples/`. Credit to all owners. You can find their name and original cartridge name in the .p8 files. Thanks for them for sharing them.
 
 Credit to all examples:
@@ -39,3 +40,6 @@ Credit to all examples:
 * advanced micro platformer - matthughson
 * pixel-perfect collision test - josh millard
 * simple-collision-function - Scathe
+
+Thanks for:
+enargy ond Discord for helping me with the collision system remake
