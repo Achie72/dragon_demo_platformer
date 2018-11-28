@@ -13,9 +13,9 @@ function _init()
   player.mx_spd=4
   player.facing=0
   player.grounded=1
-	player.flowers=9
+	player.flowers=0
 	player.spr=3
-	player.life=5
+	player.life=3
 	player.maxlife=3
 	player.invc=30 --frames
 	player.win=0
