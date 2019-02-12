@@ -19,6 +19,7 @@ Currently i'm not concerned about token numbers, in this project i want to focus
 * GUI containing health, and picked up flowers, and missing ones.
 * Two enemy AI. `knight` who just wanders, and turns if he can't go forward, and falls down on ledges. `spearman` who will guard the position, and won't fall of edges.
 * Proper game loop. Now you can lose, and win, and restart the game if one or the other happens.
+* Damage indication in the form of red flashing, invincibility frames, and health pickups in the form of the heart flowers.
 
 
 [Animator based on this cartridge](https://www.lexaloffle.com/bbs/?tid=3115 "Simple Animation Function")  
@@ -41,5 +42,8 @@ Credit to all examples:
 * pixel-perfect collision test - josh millard
 * simple-collision-function - Scathe
 
-Thanks for:
-enargy ond Discord for helping me with the collision system remake
+Thanks for:  
+* enargy on Discord, for helping me with the collision system remake
+* tobiasvl on Discord, for putting up with my shit with lua ternaries
+
+The whole family on Pico-8 Discord
