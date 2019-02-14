@@ -433,7 +433,7 @@ function player_enemy_collision()
 end
 
 
-function manageinternaltimers()
+function manage_internal_timers()
 		global.tick += 1
 		--player.nextinvc = global.tick + player.invc
 
@@ -455,7 +455,7 @@ end
 function _update()
 	if player.life > 0 then
 		if player.win == 0 then
-		manageinternaltimers()
+		manage_internal_timers()
 		if(global.tick > 5000) global.tick = 0
 			cls()
 		 map()
