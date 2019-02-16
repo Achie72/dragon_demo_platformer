@@ -20,6 +20,8 @@ Currently i'm not concerned about token numbers, in this project i want to focus
 * Two enemy AI. `knight` who just wanders, and turns if he can't go forward, and falls down on ledges. `spearman` who will guard the position, and won't fall of edges.
 * Proper game loop. Now you can lose, and win, and restart the game if one or the other happens.
 * Damage indication in the form of red flashing, invincibility frames, and health pickups in the form of the heart flowers.
+* The ability for the player to stomp enemies upon landing on them, and gaining upward momentum from them.
+* An OOP-like method for creating enemies, and animated grasses onto the game. `create_enemy` and `create_grass`
 
 
 [Animator based on this cartridge](https://www.lexaloffle.com/bbs/?tid=3115 "Simple Animation Function")  
