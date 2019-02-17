@@ -31,6 +31,7 @@ function _init()
 	global.camera_buffer=28
 	global.tick = 0
 	global.debug = 0
+	global.animation_queue = {}
 
 	crect = {
 		x1 = 0,
@@ -179,7 +180,6 @@ function create_enemy(x,y,type)
 			defspeed = 1,
 			speed = 1,
 			spr = 12,
-			ay = 0,
 			hitspr = 28,
 			type = type,
 			animspeed = 6
@@ -193,8 +193,7 @@ function create_enemy(x,y,type)
 			defspeed = 1,
 			speed = 0.5,
 			spr = 14,
-			ay = 0,
-			hitspr = 28,
+			hitspr = 30,
 			type = type,
 			animspeed = 6
 		}
@@ -213,6 +212,23 @@ function create_grass(x,y)
 		spr = sprite
 	}
 	add(tall_grasses,grass)
+end
+
+function create_animation(object,starting_frame,number_of_frames,speed,ticks,persistent,lifetime)
+	local obj = {
+		x = object.x,
+		y = object.y,
+	}
+	local anim = {
+		object = obj,
+		starting_frame = starting_frame,
+		number_of_frames = number_of_frames,
+		speed = speed,
+		ticks = ticks,
+		presistent = persistent,
+		lifetime = lifetime
+	}
+	add(global.animation_queue,anim)
 end
 
 
@@ -382,6 +398,23 @@ function animate(object,starting_frame,number_of_frames,speed,ticks)
 	spr(object.actualframe,object.x,object.y,1,1,ticks)
 end
 
+function play_global_animations()
+	-- draw animated grass
+	for grass in all(tall_grasses) do
+		animate(grass,grass.spr,4,flr(rnd(6)) + 1,false)
+	end
+	-- initiate animation queue
+	if #global.animation_queue != 0 then
+		for anim in all(global.animation_queue) do
+			animate(anim.object,anim.starting_frame,anim.number_of_frames,anim.speed,anim.tick)
+			anim.lifetime -= 1
+			if (not anim.persistent) and (anim.lifetime <= 0) then
+				del(global.animation_queue,anim)
+			end
+		end
+	end
+end
+
 function move_camera()
 	if (player.x - cam.x <= (64 + global.camera_buffer)) then
 		cam.x -= cam.speed
@@ -393,7 +426,7 @@ end
 function move_enemy(object,w,h)
 	next_wall = 0
 	next_floor = 0
--- type 0
+	-- type 0
 	if object.type == 0 then
 
 		if object.speed > 0 then
@@ -415,7 +448,7 @@ function move_enemy(object,w,h)
 			object.ay = 0
 		end
 	end
--- type 1
+	-- type 1
 	if object.type == 1 then
 		if object.speed > 0 then
 			next_floor = mget(object.x/8+(1*sgn(object.speed)),object.y/8+1)
@@ -544,12 +577,8 @@ function control_player()
 		end
 	end
 
-
-
  player.x += player.ax
  player.y += player.ay
-
-
 	if (check_pickup(player.x,player.y,7,7)) then
 		sfx(1)
 		player.flowers+=1
@@ -558,15 +587,12 @@ function control_player()
 		sfx(1)
 		player.flowers+=1
 	end
-
 	if (check_heart(player.x,player.y,7,7)) then
 		sfx(1)
 		player.life+=1
 	end
-
 	check_princess(player.x,player.y,7,7)
 end
-
 
 function control_enemies()
 	for monster in all(enemies) do
@@ -607,6 +633,11 @@ function check_stomp()
 	for monster in all(enemies) do
 		if ((monster.y < player.y + 7) and (player.y+7 <= monster.y+7)) and (player.ay > 0) then
 			if ((monster.x < player.x+7) and (player.x+7 < monster.x+7)) or ((monster.x < player.x) and (player.x < monster.x+7)) then
+				if monster.speed < 0 then
+					create_animation(monster,monster.hitspr,2,30,false,false,10)
+				else
+					create_animation(monster,monster.hitspr,2,30,true,false,10)
+				end
 				del(enemies,monster)
 				player.ay = -player.jump
 			end
@@ -645,9 +676,8 @@ function _update()
 			control_enemies()
 			check_stomp()
 			player_enemy_collision()
-			for grass in all(tall_grasses) do
-				animate(grass,grass.spr,4,flr(rnd(6)) + 1,false)
-			end
+			play_global_animations()
+
 		else
 			print("you won!",player.x-20, player.y + 20,1)
 			print("press '\142' to restart",player.x-40, player.y + 28,1)
