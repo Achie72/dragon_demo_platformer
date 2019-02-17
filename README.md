@@ -22,6 +22,7 @@ Currently i'm not concerned about token numbers, in this project i want to focus
 * Damage indication in the form of red flashing, invincibility frames, and health pickups in the form of the heart flowers.
 * The ability for the player to stomp enemies upon landing on them, and gaining upward momentum from them.
 * An OOP-like method for creating enemies, and animated grasses onto the game. `create_enemy` and `create_grass`
+* The ability to breath fireballs (still not colliding, WIP) and fireflowers to replenish this ability.
 
 
 [Animator based on this cartridge](https://www.lexaloffle.com/bbs/?tid=3115 "Simple Animation Function")  
