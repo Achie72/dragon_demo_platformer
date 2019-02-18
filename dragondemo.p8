@@ -527,8 +527,14 @@ end
 
 function move_fireball()
 	for fireball in all(fireballs) do
+		nextpos = fireball.direction == 1 and fireball.x + 8 or fireball.x
+		if fget(mget(flr(nextpos/8),flr((fireball.y+4)/8)),0) then
+			del(fireballs,fireball)
+			return
+		end
 		flipped = false
 		fireball.x += (fireball.speed * fireball.direction)
+		global.debug = fireball.direction
 		if (fireball.direction < 0) flipped = true
 		animate(fireball,fireball.spr,4,10,flipped)
 	end
