@@ -1,7 +1,7 @@
-# pico8
+# DragonDemo
 PICO-8 Fooling and Learning
 
-Generally this repository will contain my learning and experiments about the fantasy console named PICO-8.  
+Generally this repository will contain my learning and experiments about the fantasy console named PICO-8 and platformers.  
 Don't forget to check the people i mentioned in the `Examples and credits` part.
 
 ## Dragondemo.p8
@@ -50,3 +50,8 @@ Thanks for:
 * tobiasvl on Discord, for putting up with my shit with lua ternaries
 
 The whole family on Pico-8 Discord
+
+---  
+**Social media:**  
+[Follow me on Twitter](https://twitter.com/Achie7240)  
+[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/L4L81GBPX)
